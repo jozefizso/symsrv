@@ -161,6 +161,10 @@ sub GatherFileInformation {
         if ( $curline =~ m/^Path:[\s\t]*(.*)$/i ) {
             $LocalFile = lc $1;
 
+            if ( $LocalFile !~ m/(.:\\)(.*)$/ ) {
+                $LocalFile = lc "$SourceRoot\\$LocalFile";
+            }
+
             my $FileRepository;
             my $FileRelative;
             my $FileRevision;
