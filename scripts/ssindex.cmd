@@ -592,7 +592,7 @@ sub IndexThisPdb {
         } else {
             info_message("... wrote $filename to $pdb ...");
         }
-        unlink("$filename");
+        #unlink("$filename");
     } else {
         info_message("... zero source files found ...");
     }
