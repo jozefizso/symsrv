@@ -400,6 +400,7 @@ if ( defined $Options{'SRCSRV_LOAD'} ) {
 my @SourceRoots = split(/;/, $Options{'SRCSRV_SOURCE'});
 foreach (@SourceRoots) {
     s/^\s*(.*)\s*$/$1/;
+    status_message("GatherFileInformation($_)");
     $Options{'SRCSRV_PROVIDER'}->GatherFileInformation($_, \%ServerVars, \%ExcludeInfo);
 }
 

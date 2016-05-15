@@ -144,6 +144,7 @@ sub GatherFileInformation {
         }
     }
 
+    ::status_message("Executing: $$self{'SVNCMD'} info -R \"$SourceRoot\"");
     if ( ! open($hProcess, "$$self{'SVNCMD'} info -R \"$SourceRoot\"|") ) {
         ::warn_message("Unable to start $$self{'SVNCMD'}: $!");
         return();
@@ -239,6 +240,7 @@ sub GetFileInfo {
     if ( defined $$self{'FILE_LOOKUP_TABLE'}{lc $file} ) {
         return( @{$$self{'FILE_LOOKUP_TABLE'}{lc $file}} );
     } else {
+        #::warn_message("Missing file $file");
         return(undef);
     }
 }
